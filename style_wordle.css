@@ -36,6 +36,7 @@ nav {
     border-radius: 1px;
     width: 500px;
     z-index: 1;
+    margin-bottom: 0;
 }
 
 #title {
@@ -186,9 +187,6 @@ button:active {
     text-align: center;
     color: #538d4e;
     font-size: 15px;
-    position: fixed;
-    margin-top: 55px;
-    margin-left: 250px;
 }
 
 .alert_winner {
@@ -433,19 +431,19 @@ button:active {
     .alert_error {
         width: 130px;
         height: 35px;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     .alert_winner {
         width: 130px;
         height: 35px;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     .base {
         width: 130px;
         height: 35px;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     @keyframes flipped_correct {
@@ -577,19 +575,19 @@ button:active {
     .alert_error {
         width: 130px;
         height: 35px;
-        margin-top: 70px;
+        margin-top: 90px;
     }
 
     .alert_winner {
         width: 130px;
         height: 35px;
-        margin-top: 70px;
+        margin-top: 90px;
     }
 
     .base {
         width: 130px;
         height: 35px;
-        margin-top: 70px;
+        margin-top: 90px;
     }
 
     nav {
@@ -725,19 +723,19 @@ button:active {
     .alert_error {
         width: 130px;
         height: 35px;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     .alert_winner {
         width: 130px;
         height: 35px;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     .base {
         width: 130px;
         height: 35px;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     @keyframes flipped_correct {
