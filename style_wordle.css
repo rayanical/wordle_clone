@@ -4,13 +4,16 @@ html {
     display: flex;
     justify-content: center;
     height: 941px;
+    overflow: hidden;
 }
+
 body {
     margin: 0;
     display: flex;
-    display: grid;
-    grid-template-rows: 0.5fr 1fr 3fr;
-    row-gap: 130px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 130px;
 }
 
 nav {
@@ -28,7 +31,7 @@ nav {
 
 #title {
     color: #d7dadc;
-    font-size: 34px;
+    font-size: 32px;
     letter-spacing: 3px;
 }
 
@@ -176,7 +179,7 @@ button:active {
     font-size: 15px;
     position: fixed;
     margin-top: 55px;
-    margin-left: 285px;
+    margin-left: 250px;
 }
 
 .alert_winner {
@@ -186,7 +189,6 @@ button:active {
     position: fixed;
     background: #878a8c;
     border-radius: 7px;
-    margin-left: 175px;
     margin-top: 95px;
     display: flex;
     justify-content: center;
@@ -203,7 +205,6 @@ button:active {
     position: fixed;
     background: #878a8c;
     border-radius: 7px;
-    margin-left: 175px;
     margin-top: 95px;
     display: flex;
     justify-content: center;
@@ -223,7 +224,6 @@ button:active {
     position: fixed;
     background: #878a8c;
     border-radius: 7px;
-    margin-left: 175px;
     margin-top: 95px;
     display: flex;
     justify-content: center;
@@ -233,8 +233,58 @@ button:active {
     font-size: 30px;
 }
 
+#restart {
+    width: 90px;
+    height: 50px;
+    background: #d7dadc;
+    color: black;
+    border-radius: 7px;
+}
+
+#restart:hover {
+    cursor: pointer;
+    border: 2px gray solid;
+}
+
+.showFinal {
+    z-index: 2;
+    width: 350px;
+    height: 300px;
+    position: fixed;
+    background: #3a3b3d;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d7dadc;
+    font-weight: bolder;
+    font-size: 13px;
+    margin-top: 200px;
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+    border: 2px gray solid;
+    animation-name: winner;
+    animation-duration: 0.75s;
+    transform: scale(1);
+}
+
+#restart:active {
+    background: #a4a5a7;
+}
+
 .key_wrong {
     background: #3a3b3d;
+}
+
+@keyframes winner {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes error {
@@ -340,5 +390,416 @@ button:active {
 
     100% {
         transform: scale(1);
+    }
+}
+
+/* Chromebook */
+@media screen and (max-width: 1366px) {
+    .tile {
+        width: 52px;
+        height: 52px;
+    }
+
+    body {
+        gap: 87px;
+    }
+
+    .key {
+        width: 38px;
+        height: 52px;
+    }
+
+    .alert_error {
+        width: 130px;
+        height: 35px;
+        margin-top: 80px;
+    }
+
+    .alert_winner {
+        width: 130px;
+        height: 35px;
+        margin-top: 80px;
+    }
+
+    .base {
+        width: 130px;
+        height: 35px;
+        margin-top: 80px;
+    }
+
+    @keyframes flipped_correct {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #538d4e;
+            border: none;
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    @keyframes flipped_contains {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #b59f3b;
+            border: none;
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    @keyframes flipped_wrong {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #3a3b3d;
+            border: none;
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    .correct {
+        background: #538d4e;
+        border: none;
+        width: 56px;
+        height: 56px;
+    }
+
+    .wrong {
+        background: #3a3b3d;
+        border: none;
+        width: 56px;
+        height: 56px;
+    }
+
+    .contains {
+        background: #b59f3b;
+        border: none;
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* iPhone 6/7/8 */
+@media screen and (max-height: 667px) {
+    .tile {
+        width: 48px;
+        height: 48px;
+    }
+
+    body {
+        gap: 65px;
+    }
+
+    .key {
+        width: 31px;
+        height: 42px;
+    }
+
+    #enter {
+        width: 39px;
+        font-size: 10px;
+    }
+
+    .alert_error {
+        width: 130px;
+        height: 35px;
+        margin-top: 70px;
+    }
+
+    .alert_winner {
+        width: 130px;
+        height: 35px;
+        margin-top: 70px;
+    }
+
+    .base {
+        width: 130px;
+        height: 35px;
+        margin-top: 70px;
+    }
+
+    nav {
+        gap: 50px;
+    }
+
+    @keyframes flipped_correct {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 48px;
+            height: 48px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 48px;
+            height: 48px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #538d4e;
+            border: none;
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    @keyframes flipped_contains {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 48px;
+            height: 48px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 48px;
+            height: 48px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #b59f3b;
+            border: none;
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    @keyframes flipped_wrong {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 48px;
+            height: 48px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 48px;
+            height: 48px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #3a3b3d;
+            border: none;
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    .correct {
+        background: #538d4e;
+        border: none;
+        width: 52px;
+        height: 52px;
+    }
+
+    .wrong {
+        background: #3a3b3d;
+        border: none;
+        width: 52px;
+        height: 52px;
+    }
+
+    .contains {
+        background: #b59f3b;
+        border: none;
+        width: 52px;
+        height: 52px;
+    }
+}
+
+/* X/etc */
+@media screen and (max-height: 812px) and (min-height: 700px) {
+    .tile {
+        width: 52px;
+        height: 52px;
+    }
+
+    body {
+        gap: 87px;
+    }
+
+    .key {
+        width: 31px;
+        height: 42px;
+    }
+
+    #enter {
+        width: 39px;
+        font-size: 10px;
+    }
+
+    .alert_error {
+        width: 130px;
+        height: 35px;
+        margin-top: 80px;
+    }
+
+    .alert_winner {
+        width: 130px;
+        height: 35px;
+        margin-top: 80px;
+    }
+
+    .base {
+        width: 130px;
+        height: 35px;
+        margin-top: 80px;
+    }
+
+    @keyframes flipped_correct {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #538d4e;
+            border: none;
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    @keyframes flipped_contains {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #b59f3b;
+            border: none;
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    @keyframes flipped_wrong {
+        0% {
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        50% {
+            transform: rotateX(180deg);
+            background: none;
+            border: #878a8c 2px solid;
+            width: 52px;
+            height: 52px;
+        }
+
+        100% {
+            transform: rotateX(360deg);
+            background: #3a3b3d;
+            border: none;
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    .correct {
+        background: #538d4e;
+        border: none;
+        width: 56px;
+        height: 56px;
+    }
+
+    .wrong {
+        background: #3a3b3d;
+        border: none;
+        width: 56px;
+        height: 56px;
+    }
+
+    .contains {
+        background: #b59f3b;
+        border: none;
+        width: 56px;
+        height: 56px;
+    }
+
+    nav {
+        gap: 50px;
     }
 }

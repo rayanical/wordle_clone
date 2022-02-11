@@ -11,6 +11,14 @@ const enter = document.getElementById('enter');
 const remove = document.getElementById('delete');
 const alerter = document.getElementById('alert');
 const btn = document.getElementsByClassName('btn');
+const restart = document.getElementById('restart');
+const restart_show = document.getElementById('end');
+const restart_text = document.getElementById('restart_text');
+
+//refresh webpage
+function restarter() {
+    window.location.reload();
+}
 
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', tempWarning);
@@ -20,7 +28,7 @@ for (let i = 0; i < btn.length; i++) {
     }
 }
 
-let wordle = answers[0].toUpperCase();
+let wordle = '';
 
 let winner = false;
 
@@ -37,18 +45,7 @@ function makeWordle() {
     wordle = answers[random].toUpperCase();
 }
 
-function resetAtMidnight() {
-    var now = new Date();
-    var night = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
-    var msToMidnight = night.getTime() - now.getTime();
-
-    setTimeout(function () {
-        makeWordle();
-        resetAtMidnight();
-    }, msToMidnight);
-}
-
-resetAtMidnight();
+makeWordle();
 
 let count = 0;
 // adds event listeners to the keys, listens for click to add text to the correct tile.
@@ -123,18 +120,25 @@ function check() {
 
         if (guess === wordle) {
             alerter.classList.remove('base');
-            alerter.innerText = 'Winner';
-            alerter.classList.add('alert_winner');
+            setTimeout(() => {
+                restart_text.style.color = '#538d4e';
+                restart_text.innerText = 'You won! Your guess was ' + wordle;
+                restart_show.classList.add('showFinal');
+                restart.addEventListener('click', restarter);
+            }, 1800);
             for (let i = 0; i < keys.length; i++) {
                 keys[i].disabled = true;
                 enter.disabled = true;
                 remove.disabled = true;
                 winner = true;
             }
-            // setTimeout(() => {
-            //     alerter.classList.remove('alert_winner');
-            //     alerter.innerText = '';
-            // });
+        } else if (row_count === 6) {
+            setTimeout(() => {
+                restart_text.style.color = '#a54b4b';
+                restart_text.innerText = 'You ran out of tries. The answer was ' + wordle;
+                restart_show.classList.add('showFinal');
+                restart.addEventListener('click', restarter);
+            }, 1800);
         }
     } else {
         alerter.classList.remove('base');
@@ -155,3 +159,6 @@ function removed() {
     rows[row_count][count - 1].classList.remove('bounce');
     count -= 1;
 }
+
+// add local storage for total wins and games attempted
+// later: stats, show win percentage, and wins in however many attempts, i.e wins in 1 try, then wins in 2 tries
