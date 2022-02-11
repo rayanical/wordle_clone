@@ -4,6 +4,7 @@ html {
     display: flex;
     justify-content: center;
     height: 941px;
+    width: auto;
     overflow: hidden;
     user-select: none;
     touch-action: manipulation;
@@ -400,7 +401,12 @@ button:active {
 }
 
 /* Chromebook */
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1366px) and (min-width: 1200px) {
+    html {
+        height: 768px;
+        width: 1366px;
+    }
+
     .tile {
         width: 52px;
         height: 52px;
@@ -531,7 +537,12 @@ button:active {
 }
 
 /* iPhone 6/7/8 */
-@media screen and (max-height: 667px) {
+@media screen and (max-height: 667px) and (max-width: 375px) {
+    html {
+        height: 667px;
+        width: 375px;
+    }
+
     .tile {
         width: 48px;
         height: 48px;
@@ -671,7 +682,12 @@ button:active {
 }
 
 /* X/etc */
-@media screen and (max-height: 812px) and (min-height: 700px) {
+@media screen and (max-height: 812px) and (min-height: 700px) and (max-width: 375px) {
+    html {
+        height: 812px;
+        width: 375px;
+    }
+
     .tile {
         width: 52px;
         height: 52px;
