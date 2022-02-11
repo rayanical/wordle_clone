@@ -6,6 +6,7 @@ html {
     height: 941px;
     overflow: hidden;
     user-select: none;
+    touch-action: manipulation;
 }
 
 body {
