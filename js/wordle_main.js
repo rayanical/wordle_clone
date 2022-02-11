@@ -121,6 +121,7 @@ function check() {
         if (guess === wordle) {
             alerter.classList.remove('base');
             setTimeout(() => {
+                restart_show.classList.remove('endOpacity');
                 restart_text.style.color = '#538d4e';
                 restart_text.innerText = 'You won! Your guess was ' + wordle;
                 restart_show.classList.add('showFinal');
@@ -134,6 +135,7 @@ function check() {
             }
         } else if (row_count === 6) {
             setTimeout(() => {
+                restart_show.classList.remove('endOpacity');
                 restart_text.style.color = '#a54b4b';
                 restart_text.innerText = 'You ran out of tries. The answer was ' + wordle;
                 restart_show.classList.add('showFinal');

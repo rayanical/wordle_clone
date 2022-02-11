@@ -5,6 +5,7 @@ html {
     justify-content: center;
     height: 941px;
     overflow: hidden;
+    user-select: none;
 }
 
 body {
@@ -244,6 +245,10 @@ button:active {
 #restart:hover {
     cursor: pointer;
     border: 2px gray solid;
+}
+
+.endOpacity {
+    opacity: 0;
 }
 
 .showFinal {
