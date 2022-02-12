@@ -549,8 +549,8 @@ button:active {
         gap: 10px;
     }
     html {
-        height: 667px;
-        width: 375px;
+        height: auto;
+        width: auto;
     }
 
     .tile {
