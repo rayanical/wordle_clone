@@ -164,3 +164,4 @@ function removed() {
 
 // add local storage for total wins and games attempted
 // later: stats, show win percentage, and wins in however many attempts, i.e wins in 1 try, then wins in 2 tries
+// if person guesses two of the same letter but one of the letters is in the right position, and the answer only has one of those letters, make the other letter grayed

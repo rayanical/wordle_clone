@@ -407,7 +407,7 @@ button:active {
 /* Chromebook */
 @media screen and (max-width: 1366px) and (min-width: 1200px) {
     #splitter {
-        gap: 50px;
+        gap: 15px;
     }
     html {
         height: 768px;
@@ -420,7 +420,7 @@ button:active {
     }
 
     body {
-        gap: 87px;
+        gap: 50px;
     }
 
     .key {
@@ -431,19 +431,19 @@ button:active {
     .alert_error {
         width: 130px;
         height: 35px;
-        margin-top: 100px;
+        margin-top: 95px;
     }
 
     .alert_winner {
         width: 130px;
         height: 35px;
-        margin-top: 100px;
+        margin-top: 95px;
     }
 
     .base {
         width: 130px;
         height: 35px;
-        margin-top: 100px;
+        margin-top: 95px;
     }
 
     @keyframes flipped_correct {
@@ -559,7 +559,7 @@ button:active {
     }
 
     body {
-        gap: 65px;
+        gap: 50px;
     }
 
     .key {
@@ -694,7 +694,7 @@ button:active {
 /* X/etc */
 @media screen and (max-height: 812px) and (min-height: 700px) and (max-width: 375px) {
     #splitter {
-        gap: 45px;
+        gap: 25px;
     }
     html {
         height: 812px;
@@ -707,7 +707,7 @@ button:active {
     }
 
     body {
-        gap: 87px;
+        gap: 60px;
     }
 
     .key {
