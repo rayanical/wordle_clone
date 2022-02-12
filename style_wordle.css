@@ -559,7 +559,7 @@ button:active {
     }
 
     body {
-        gap: 50px;
+        gap: 30px;
     }
 
     .key {
@@ -576,6 +576,7 @@ button:active {
         width: 130px;
         height: 35px;
         margin-top: 90px;
+        border: 1px black solid;
     }
 
     .alert_winner {
