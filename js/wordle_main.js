@@ -38,7 +38,6 @@ function showStats() {
     if (visCount % 2 === 0) {
         statbox.style.visibility = 'visible';
         visCount += 1;
-        console.log(visCount);
     } else {
         statbox.style.visibility = 'hidden';
         visCount += 1;
