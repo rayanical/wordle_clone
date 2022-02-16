@@ -19,7 +19,7 @@
                 </svg>
                 <h1 id="title">WORDLE∞</h1>
                 <div id="buttons">
-                    <svg class="pointer btn" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                    <svg id="statistics" class="pointer" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                         <path fill="#878a8c" d="M16,11V3H8v6H2v12h20V11H16z M10,5h4v14h-4V5z M4,11h4v8H4V11z M20,19h-4v-6h4V19z"></path>
                     </svg>
                 </div>
@@ -120,6 +120,45 @@
         <div id="end" class="endOpacity">
             <h1 id="restart_text">placeholder</h1>
             <button id="restart">Restart</button>
+        </div>
+
+        <div id="stat">
+            <div class="rowMaker">
+                <h1>Games Played:</h1>
+                <h2 class="numberStat" id="gamesPlayed">gamesPlayed</h2>
+            </div>
+            <div class="rowMaker">
+                <h1>Total Wins:</h1>
+                <h2 class="numberStat" id="totalWins">totalWins</h2>
+            </div>
+            <div class="rowMaker">
+                <h1>Win Percentage:</h1>
+                <h2 class="numberStat" id="winPerc">win%</h2>
+            </div>
+            <div class="rowMaker">
+                <h1>First Try Wins:</h1>
+                <h2 class="numberStat" id="firstTry">WIP</h2>
+            </div>
+            <div class="rowMaker">
+                <h1>Second Try Wins:</h1>
+                <h2 class="numberStat" id="secondTry">WIP</h2>
+            </div>
+            <div class="rowMaker">
+                <h1>Third Try Wins:</h1>
+                <h2 class="numberStat" id="thirdTry">WIP</h2>
+            </div>
+            <div class="rowMaker">
+                <h1>Fourth Try Wins:</h1>
+                <h2 class="numberStat" id="fourthTry">WIP</h2>
+            </div>
+            <div class="rowMaker">
+                <h1>Fifth Try Wins:</h1>
+                <h2 class="numberStat" id="fifthTry">WIP</h2>
+            </div>
+            <div class="rowMaker">
+                <h1>Sixth Try Wins:</h1>
+                <h2 class="numberStat" id="sixthTry">WIP</h2>
+            </div>
         </div>
 
         <script type="module" src="js/wordle_main.js"></script>

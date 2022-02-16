@@ -288,6 +288,41 @@ button:active {
     background: #3a3b3d;
 }
 
+#stat {
+    z-index: 2;
+    width: 350px;
+    height: 500px;
+    position: fixed;
+    background: #3a3b3d;
+    border-radius: 7px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 35px;
+    color: #d7dadc;
+    font-weight: bolder;
+    font-size: 11px;
+    margin-top: 200px;
+    text-align: center;
+    flex-direction: column;
+    border: 2px gray solid;
+    padding-top: 10px;
+    visibility: hidden;
+    transform: scale(1);
+}
+
+.numberStat {
+    color: #538d4e;
+    font-weight: bolder;
+}
+
+.rowMaker {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
 @keyframes winner {
     0% {
         opacity: 0;
@@ -548,6 +583,12 @@ button:active {
     #splitter {
         gap: 10px;
     }
+
+    #stat {
+        transform: scale(0.8);
+        margin-top: 75px;
+    }
+
     html {
         height: auto;
         width: auto;
@@ -697,6 +738,12 @@ button:active {
     #splitter {
         gap: 25px;
     }
+
+    #stat {
+        transform: scale(0.8);
+        margin-top: 75px;
+    }
+
     html {
         height: 812px;
         width: 375px;

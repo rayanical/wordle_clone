@@ -14,6 +14,10 @@ const btn = document.getElementsByClassName('btn');
 const restart = document.getElementById('restart');
 const restart_show = document.getElementById('end');
 const restart_text = document.getElementById('restart_text');
+const numTotalWins = document.getElementById('totalWins');
+const winPerc = document.getElementById('winPerc');
+const statistics = document.getElementById('statistics');
+const statbox = document.getElementById('stat');
 
 //refresh webpage
 function restarter() {
@@ -28,9 +32,33 @@ for (let i = 0; i < btn.length; i++) {
     }
 }
 
+let visCount = 0;
+statistics.addEventListener('click', showStats);
+function showStats() {
+    if (visCount % 2 === 0) {
+        statbox.style.visibility = 'visible';
+        visCount += 1;
+        console.log(visCount);
+    } else {
+        statbox.style.visibility = 'hidden';
+        visCount += 1;
+    }
+}
+
 let wordle = '';
 
 let winner = false;
+
+// Stat
+let games = parseInt(localStorage.getItem('gamesPlayed')) || 0;
+games += 1;
+localStorage.setItem('gamesPlayed', games);
+const numGamesPlayed = document.getElementById('gamesPlayed');
+numGamesPlayed.innerText = games;
+let wins = parseInt(localStorage.getItem('totalWins')) || 0;
+numTotalWins.innerText = wins;
+let winPercentage = (parseFloat(wins) / parseFloat(games)) * 100;
+winPerc.innerText = winPercentage.toLocaleString('en-US', { maximumFractionDigits: 2 }) + '%';
 
 let keys_strings = [];
 for (let i = 0; i < keys.length; i++) {
@@ -120,6 +148,9 @@ function check() {
 
         if (guess === wordle) {
             alerter.classList.remove('base');
+            wins += 1;
+            localStorage.setItem('totalWins', wins);
+
             setTimeout(() => {
                 restart_show.classList.remove('endOpacity');
                 restart_text.style.color = '#538d4e';
@@ -162,6 +193,5 @@ function removed() {
     count -= 1;
 }
 
-// add local storage for total wins and games attempted
 // later: stats, show win percentage, and wins in however many attempts, i.e wins in 1 try, then wins in 2 tries
 // if person guesses two of the same letter but one of the letters is in the right position, and the answer only has one of those letters, make the other letter grayed
