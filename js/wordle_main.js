@@ -54,10 +54,10 @@ let games = parseInt(localStorage.getItem('gamesPlayed')) || 0;
 games += 1;
 localStorage.setItem('gamesPlayed', games);
 const numGamesPlayed = document.getElementById('gamesPlayed');
-numGamesPlayed.innerText = games;
+numGamesPlayed.innerText = games - 1;
 let wins = parseInt(localStorage.getItem('totalWins')) || 0;
 numTotalWins.innerText = wins;
-let winPercentage = (parseFloat(wins) / parseFloat(games)) * 100;
+let winPercentage = (parseFloat(wins) / parseFloat(games - 1)) * 100;
 winPerc.innerText = winPercentage.toLocaleString('en-US', { maximumFractionDigits: 2 }) + '%';
 
 let keys_strings = [];
