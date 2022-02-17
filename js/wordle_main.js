@@ -19,6 +19,31 @@ const winPerc = document.getElementById('winPerc');
 const statistics = document.getElementById('statistics');
 const statbox = document.getElementById('stat');
 
+// tryStat
+let firstTries = parseInt(localStorage.getItem('firstTriesL')) || 0;
+const first = document.getElementById('firstTry');
+first.innerHTML = firstTries;
+
+let secondTries = parseInt(localStorage.getItem('secondTriesL')) || 0;
+const second = document.getElementById('secondTry');
+second.innerHTML = secondTries;
+
+let thirdTries = parseInt(localStorage.getItem('thirdTriesL')) || 0;
+const third = document.getElementById('thirdTry');
+third.innerHTML = thirdTries;
+
+let fourthTries = parseInt(localStorage.getItem('fourthTriesL')) || 0;
+const fourth = document.getElementById('fourthTry');
+fourth.innerHTML = fourthTries;
+
+let fifthTries = parseInt(localStorage.getItem('fifthTriesL')) || 0;
+const fifth = document.getElementById('fifthTry');
+fifth.innerHTML = fifthTries;
+
+let sixthTries = parseInt(localStorage.getItem('sixthTriesL')) || 0;
+const sixth = document.getElementById('sixthTry');
+sixth.innerHTML = sixthTries;
+
 //refresh webpage
 function restarter() {
     window.location.reload();
@@ -28,7 +53,7 @@ for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', tempWarning);
 
     function tempWarning() {
-        alert('does not work yet, soon.');
+        alert('its wordle, just to infinity.');
     }
 }
 
@@ -48,17 +73,6 @@ let wordle = '';
 
 let winner = false;
 
-// Stat
-let games = parseInt(localStorage.getItem('gamesPlayed')) || 0;
-games += 1;
-localStorage.setItem('gamesPlayed', games);
-const numGamesPlayed = document.getElementById('gamesPlayed');
-numGamesPlayed.innerText = games - 1;
-let wins = parseInt(localStorage.getItem('totalWins')) || 0;
-numTotalWins.innerText = wins;
-let winPercentage = (parseFloat(wins) / parseFloat(games - 1)) * 100;
-winPerc.innerText = winPercentage.toLocaleString('en-US', { maximumFractionDigits: 2 }) + '%';
-
 let keys_strings = [];
 for (let i = 0; i < keys.length; i++) {
     keys_strings.push(keys[i].innerText);
@@ -67,6 +81,16 @@ for (let i = 0; i < keys.length; i++) {
 const rows = [row1, row2, row3, row4, row5, row6];
 let row_count = 0;
 
+// Stat
+let games = parseInt(localStorage.getItem('gamesPlayed')) || 0;
+localStorage.setItem('gamesPlayed', games);
+const numGamesPlayed = document.getElementById('gamesPlayed');
+numGamesPlayed.innerText = games;
+let wins = parseInt(localStorage.getItem('totalWins')) || 0;
+numTotalWins.innerText = wins;
+let winPercentage = (parseFloat(wins) / parseFloat(games)) * 100;
+winPerc.innerText = winPercentage.toLocaleString('en-US', { maximumFractionDigits: 2 }) + '%';
+console.log(games);
 function makeWordle() {
     let random = Math.floor(Math.random() * 2316);
     wordle = answers[random].toUpperCase();
@@ -143,12 +167,51 @@ function check() {
             }
         }
         row_count += 1;
+        if (row_count === 1) {
+            games += 1;
+            localStorage.setItem('gamesPlayed', games);
+            winPercentage = (parseFloat(wins) / parseFloat(games - 1)) * 100;
+            winPerc.innerText = winPercentage.toLocaleString('en-US', { maximumFractionDigits: 2 }) + '%';
+        }
         count = 0;
 
         if (guess === wordle) {
             alerter.classList.remove('base');
             wins += 1;
             localStorage.setItem('totalWins', wins);
+
+            //stats
+            if (row_count === 1) {
+                const first = document.getElementById('firstTry');
+                firstTries += 1;
+                first.innerHTML = firstTries;
+                localStorage.setItem('firstTriesL', firstTries);
+            } else if (row_count === 2) {
+                const second = document.getElementById('secondTry');
+                secondTries += 1;
+                second.innerHTML = secondTries;
+                localStorage.setItem('secondTriesL', secondTries);
+            } else if (row_count === 3) {
+                const third = document.getElementById('thirdTry');
+                thirdTries += 1;
+                third.innerHTML = thirdTries;
+                localStorage.setItem('thirdTriesL', thirdTries);
+            } else if (row_count === 4) {
+                const fourth = document.getElementById('fourthTry');
+                fourthTries += 1;
+                fourth.innerHTML = fourthTries;
+                localStorage.setItem('fourthTriesL', fourthTries);
+            } else if (row_count === 5) {
+                const fifth = document.getElementById('fifthTry');
+                fifthTries += 1;
+                fifth.innerHTML = fifthTries;
+                localStorage.setItem('fifthTriesL', fifthTries);
+            } else if (row_count === 6) {
+                const sixth = document.getElementById('sixthTry');
+                sixthTries += 1;
+                sixth.innerHTML = sixthTries;
+                localStorage.setItem('sixthTriesL', sixthTries);
+            }
 
             setTimeout(() => {
                 restart_show.classList.remove('endOpacity');
@@ -192,5 +255,5 @@ function removed() {
     count -= 1;
 }
 
-// later: stats, show win percentage, and wins in however many attempts, i.e wins in 1 try, then wins in 2 tries
 // if person guesses two of the same letter but one of the letters is in the right position, and the answer only has one of those letters, make the other letter grayed
+// express that in keys too ^^^
