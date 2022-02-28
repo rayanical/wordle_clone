@@ -90,7 +90,6 @@ let wins = parseInt(localStorage.getItem('totalWins')) || 0;
 numTotalWins.innerText = wins;
 let winPercentage = (parseFloat(wins) / parseFloat(games)) * 100;
 winPerc.innerText = winPercentage.toLocaleString('en-US', { maximumFractionDigits: 2 }) + '%';
-console.log(games);
 function makeWordle() {
     let random = Math.floor(Math.random() * 2316);
     wordle = answers[random].toUpperCase();
@@ -154,9 +153,11 @@ function check() {
                 rows[row_count][i].classList.add('contains', 'flip_contains');
                 rows[row_count][i].classList.remove('bounce');
                 const index = keys_strings.indexOf(rows[row_count][i].innerText);
-                setTimeout(() => {
-                    keys[index].style.backgroundColor = '#b59f3b';
-                }, 660);
+                if (keys[index].style.backgroundColor != 'rgb(83, 141, 78)') {
+                    setTimeout(() => {
+                        keys[index].style.backgroundColor = '#b59f3b';
+                    }, 660);
+                }
             } else {
                 rows[row_count][i].classList.add('wrong', 'flip_wrong');
                 rows[row_count][i].classList.remove('bounce');
@@ -256,4 +257,3 @@ function removed() {
 }
 
 // if person guesses two of the same letter but one of the letters is in the right position, and the answer only has one of those letters, make the other letter grayed
-// express that in keys too ^^^
